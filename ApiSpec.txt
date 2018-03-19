@@ -1,0 +1,42 @@
+# twitterApiMongo
+provides rest api of tweets with database monogoDb
+
+
+http://localhost:5000/track  -> To Track word and store them in mongodb
+                 Parameters  -> word [the word to be tracked]
+                                num  [number of tweets to fetch]
+                                hashTag [specify wether the search term is hashtag or not. It is optional]
+                 exapmles    -> http://localhost:5000/track?word=NarendraModi&num=50&hashTag=1
+  
+http://localhost:5000/tweets -> To view all tweets stored in the database
+
+http://localhost:5000/tweets/<pagenum>/<pagesize> -> view all tweets stored in the pagenum and and number of tweets specified by pagesize 
+                 Parameters  -> sortDateAsc [sort created at date in ascending order. takes Yes as value]
+                                sortDateDesc [sort created at date in descending order. takes Yes as value]
+                                sortText [sort text]
+                                sortId [sort by tweet id]
+                 examples    -> http://localhost:5000/tweets/1/10?sortId=1
+
+http://localhost:5000/search -> Full Text search on name and tweet text
+                 Parameters  -> query [specify the query tl be searched]
+                                hashTag [weather the query is hashtag or not]
+                 Examples    -> http://localhost:5000/search?query=NarendraModi&hashTag=1
+
+http://localhost:5000/filter -> filter tweets on various parameters
+                  Parameters -> nameContains [searches user name for nameContains]
+                                textContains [searches tweet text for text contains]
+                                textStarts [searches tweet text that begin with textStart]
+                                nameBegins [searches user name that begins with nameBegins]
+                                favouriteCount [tweets with favourite count equal to favouriteCount]
+                                language [tweet with language as language]
+                                followers [tweets with followers equal to followers]
+                                retweetCountLt [tweets with retweet count less than retweetCountLt]
+                                retweetCountGt [tweets with retweet count greater than retweetCountGt]
+                                retweetCountEq [tweets with retweet count equal than retweetCountEq]
+                                dateGt [tweets with created at greater than dateGt]
+                                dateLt [tweets with created at less than dateLt]
+                                screenName [tweets whith users having scrren name as screen name]
+                  Examples   -> http://localhost:5000/filter?nameContains=vicky&language=en&dateGt=Jan 18 2018
+            
+http://localhost:5000/getcsv -> allows to download csv file containing fields id,username,text,retweet_count,created_at
+                                
