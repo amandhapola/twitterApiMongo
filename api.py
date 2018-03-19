@@ -27,7 +27,7 @@ MONGO_HOST= 'mongodb://localhost:27017/twitterdb'
 WORDS=[]
 wordDict={}
 class StreamListener(tweepy.StreamListener):
-    def __init__(self,num):
+    def __init__(self,num=50):
         # super.__init__()
         self.counter=0
         self.num=num
