@@ -14,9 +14,10 @@ from bson.regex import Regex
 from bson import BSON
 from bson import json_util
 import subprocess
-app = Flask(__name__)
 import json
 from datetime import datetime
+app = Flask(__name__)
+
 
 consumer_key = 'dKUQo0IIf1ZYo3EtMNdbPT374'
 consumer_secret = 'lnRA8izXCEG6mRMePUV88k6XL3SzUs5fe3iOtKbArMFlaw3jio'
@@ -195,13 +196,10 @@ def getCsv():
     return send_from_directory(dir,filename='twitter.csv',as_attachment=True)
     
 if __name__ == '__main__':
-    print("running...")
     try:
         client = MongoClient(MONGO_HOST)
         db = client.twitterdb
         db.twitter_search.create_index('id',unique=True)
     except pymongo.errors.ConnectionFailure:
         print("Failed to connect ")
-    num=50
-    counter=0
     app.run(debug=True)
