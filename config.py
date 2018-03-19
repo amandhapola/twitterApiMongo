@@ -1,0 +1,5 @@
+consumer_key = 'dKUQo0IIf1ZYo3EtMNdbPT374'
+consumer_secret = 'lnRA8izXCEG6mRMePUV88k6XL3SzUs5fe3iOtKbArMFlaw3jio'
+access_token = '3565074266-3Zb3chDQv8FZTeVc5JFNCqqbSFU65f8oF8bNXRl'
+access_token_secret = 'SmcYCHvaTOZobS3ecK2sPiZQOAFlr1wgGIexVECl2Mlk3'
+MONGO_HOST= 'mongodb://localhost:27017/twitterdb'
